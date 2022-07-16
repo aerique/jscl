@@ -232,44 +232,10 @@
         ;; *environment* and other critical special variables are
         ;; initialized before we do this.
         (!compile-file "src/toplevel.lisp" out :print verbose)
-        
+
         (format out "})();~%")))
 
-    (report-undefined-functions)
+    ;(report-undefined-functions)
 
-    ;; Tests
-    (compile-application
-     `(,(source-pathname "tests.lisp" :directory nil)
-        ,@(directory (source-pathname "*" :directory '(:relative "tests") :type "lisp"))
-        ;; Loop tests
-        ,(source-pathname "validate.lisp" :directory '(:relative "tests" "loop") :type "lisp")
-        ,(source-pathname "base-tests.lisp" :directory '(:relative "tests" "loop") :type "lisp")
-        
-        ,(source-pathname "tests-report.lisp" :directory nil))
-     (merge-pathnames "tests.js" *base-directory*))
-
-    ;; Web REPL
-    (compile-application (list (source-pathname "repl.lisp" :directory '(:relative "web")))
-                         (merge-pathnames "jscl-web.js" *base-directory*))
-
-    ;; Node REPL
-    (compile-application (list (source-pathname "node.lisp" :directory '(:relative "node")))
-                         (merge-pathnames "jscl-node.js" *base-directory*)
-                         :shebang t)
-    ;; Deno REPL
-    (compile-application (list (source-pathname "deno.lisp" :directory '(:relative "deno")))
-                         (merge-pathnames "jscl-deno.js" *base-directory*)
-                         :shebang nil)))
-
-
-;;; Run the tests in the host Lisp implementation. It is a quick way
-;;; to improve the level of trust of the tests.
-(defun run-tests-in-host ()
-  (let ((*package* (find-package "JSCL"))
-        (*default-pathname-defaults* *base-directory*))
-    (load (source-pathname "tests.lisp" :directory nil))
-    (let ((*use-html-output-p* nil))
-      (declare (special *use-html-output-p*))
-      (dolist (input (directory "tests/*.lisp"))
-        (load input)))
-    (load "tests-report.lisp")))
+    ;; My fxhash test.
+    (compile-application '("perlin.lisp" "main.lisp") "app.js")))
