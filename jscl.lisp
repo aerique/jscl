@@ -18,7 +18,7 @@
 
 (defpackage :jscl
   (:use :cl)
-  (:export #:bootstrap #:compile-application #:run-tests-in-host))
+  (:export #:bootstrap #:compile-application))
 
 (in-package :jscl)
 
