@@ -18,7 +18,7 @@
 
 
 
-(/debug "loading std-method")
+;(/debug "loading std-method")
 
 
 (eval-always

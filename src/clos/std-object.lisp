@@ -20,7 +20,7 @@
 ;;; - Macro DEFCLASS moved to macros.lisp
 ;;;
 
-(/debug "loading std-object")
+;(/debug "loading std-object")
 
 
 ;;; @vlad-km

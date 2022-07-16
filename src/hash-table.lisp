@@ -32,7 +32,7 @@
 ;;; a `$$jscl_id' property. As a special case, numbers do not need to
 ;;; be tagged, as they can be used to index Javascript objects.
 
-(/debug "loading hash-table.lisp!")
+;(/debug "loading hash-table.lisp!")
 
 (defvar *eq-hash-counter* 0)
 

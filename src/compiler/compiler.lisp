@@ -15,7 +15,7 @@
 
 ;;;; Compiler
 
-(/debug "loading compiler.lisp!")
+;(/debug "loading compiler.lisp!")
 
 ;;; Translate the Lisp code to Javascript. It will compile the special
 ;;; forms. Some primitive functions are compiled as special forms

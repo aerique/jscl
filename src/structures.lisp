@@ -18,7 +18,7 @@
 ;;; You should have received a copy of the GNU General Public License
 ;;; along with JSCL.  If not, see <http://www.gnu.org/licenses/>.
 
-(/debug "loading structures.lisp!")
+;(/debug "loading structures.lisp!")
 
 #-jscl
 (setq *structures* (make-hash-table :test #'equal))

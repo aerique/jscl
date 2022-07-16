@@ -20,7 +20,7 @@
 ;;; system of Common Lisp, except that any value will work as a
 ;;; condition. Because, well, we do not have conditions at this point.
 
-(/debug "loading conditions.lisp!")
+;(/debug "loading conditions.lisp!")
 
 ;;; Condition
 (eval-when (:compile-toplevel :load-toplevel :execute)

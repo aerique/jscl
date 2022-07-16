@@ -23,7 +23,7 @@
 ;;; It is intended to be used with the new compiler. However, it is
 ;;; quite independent so it has been integrated early in JSCL.
 
-(/debug "loading compiler-codegen.lisp!")
+;(/debug "loading compiler-codegen.lisp!")
 
 
 (defvar *js-macros* nil)

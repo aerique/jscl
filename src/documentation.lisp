@@ -1,6 +1,6 @@
 ;;; documentation.lisp --- Accessing DOCUMENTATION
 
-(/debug "loading documentation.lisp!")
+;(/debug "loading documentation.lisp!")
 
 ;;; Documentation.
 (defun documentation (x type)

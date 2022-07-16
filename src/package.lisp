@@ -13,7 +13,7 @@
 ;; You should have received a copy of the GNU General Public License
 ;; along with JSCL.  If not, see <http://www.gnu.org/licenses/>.
 
-(/debug "loading package.lisp!")
+;(/debug "loading package.lisp!")
 
 (defvar *package-table*
   (%js-vref "packages"))

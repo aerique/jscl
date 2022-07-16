@@ -19,7 +19,7 @@
 ;;; TODO: Use structures to represent streams, but we would need
 ;;; inheritance.
 
-(/debug "loading stream.lisp!")
+;(/debug "loading stream.lisp!")
 
 (defvar *standard-output*)
 (defvar *standard-input*)

@@ -1,4 +1,4 @@
-(/debug "loading char.lisp!")
+;(/debug "loading char.lisp!")
 
 (defun characterp (ch) (characterp ch))
 

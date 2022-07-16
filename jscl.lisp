@@ -116,6 +116,7 @@
        (make-pathname            :directory directory :defaults defaults))
    *base-directory*))
 
+
 (defun get-files (file-list type dir)
   "Traverse FILE-LIST and retrieve a list of the files within which match
    either TYPE or :BOTH, processing subdirectories."
@@ -133,6 +134,7 @@
       (t
        (get-files (cdr file-list) type dir)))))
 
+
 (defmacro do-source (name type &body body)
   "Iterate over all the source files that need to be compiled in the host or
    the target, depending on the TYPE argument."
@@ -140,6 +142,7 @@
     (error "TYPE must be one of :HOST or :TARGET, not ~S" type))
   `(dolist (,name (get-files *source* ,type '(:relative "src")))
      ,@body))
+
 
 ;;; Compile and load jscl into the host
 (with-compilation-unit ()
@@ -150,11 +153,13 @@
         (error "Compilation of ~A failed." input))
       (load fasl))))
 
+
 (defun read-whole-file (filename)
   (with-open-file (in filename)
     (let* ((seq (make-array (file-length in) :element-type 'character))
            (char-count (read-sequence seq in)))
       (subseq seq 0 char-count))))
+
 
 (defun !compile-file (filename out &key print)
   (let ((*compiling-file* t)
@@ -170,6 +175,7 @@
          do (let ((compilation (compile-toplevel x)))
               (when (plusp (length compilation))
                 (write-string compilation out)))))))
+
 
 (defun dump-global-environment (stream)
   (flet ((late-compile (form)
@@ -190,7 +196,6 @@
     (late-compile `(setq *literal-counter* ,*literal-counter*))))
 
 
-
 (defun compile-application (files output &key shebang)
   (with-compilation-environment
       (with-open-file (out output :direction :output :if-exists :supersede)
@@ -203,7 +208,6 @@
           (!compile-file input out))
         (format out "})(jscl.internals.pv, jscl.internals);~%")
         (format out "})( typeof require !== 'undefined'? require('./jscl'): window.jscl )~%"))))
-
 
 
 (defun bootstrap (&optional verbose)

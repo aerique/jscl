@@ -15,7 +15,7 @@
 ;;; You should have received a copy of the GNU General Public License
 ;;; along with JSCL.  If not, see <http://www.gnu.org/licenses/>.
 
-(/debug "loading types.lisp!")
+;(/debug "loading types.lisp!")
 
 ;;; for internal used only
 (defun true () t)
@@ -100,7 +100,7 @@
 (defvar *builtin-types* (make-hash-table :test #'eql)  "hand off")
 
 (let ((tip))
-  (/debug "            compile basic types")
+  ;(/debug "            compile basic types")
   (dolist (it *types-basic-types*)
     (destructuring-bind (name predicate class-of &rest  tpl) it
       (setq tip (%make-basic-type
